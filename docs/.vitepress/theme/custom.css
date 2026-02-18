@@ -1,0 +1,40 @@
+:root {
+  color-scheme: dark;
+  --vp-c-brand-1: #a78bfa;
+  --vp-c-brand-2: #8b5cf6;
+  --vp-c-brand-3: #7c3aed;
+  --vp-c-brand-soft: rgba(139, 92, 246, 0.2);
+  --vp-c-text-1: #f5f2ff;
+  --vp-c-text-2: #cfc9e9;
+  --vp-c-text-3: #a79fc6;
+  --vp-c-bg: #0b0a14;
+  --vp-c-bg-alt: #111024;
+  --vp-c-bg-soft: #141228;
+  --vp-c-bg-elv: #17162d;
+  --vp-c-divider: rgba(167, 139, 250, 0.35);
+}
+
+html,
+body {
+  min-height: 100%;
+  color: var(--vp-c-text-1);
+  background:
+    radial-gradient(circle at 15% -10%, rgba(167, 139, 250, 0.22), transparent 35%),
+    radial-gradient(circle at 95% 0%, rgba(124, 58, 237, 0.2), transparent 40%), var(--vp-c-bg);
+}
+
+.VPHero .name {
+  background: linear-gradient(90deg, #d8b4fe, #a78bfa 45%, #7c3aed);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.vp-doc a {
+  text-underline-offset: 2px;
+}
+
+.VPFooter a {
+  color: var(--vp-c-brand-1);
+  text-decoration: none;
+}

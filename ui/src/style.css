@@ -1,0 +1,681 @@
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=Space+Grotesk:wght@400;500;700&display=swap');
+
+:root,
+.app-dark {
+  --p-primary-50: #f5f1ff;
+  --p-primary-100: #e8ddff;
+  --p-primary-200: #d4beff;
+  --p-primary-300: #b693ff;
+  --p-primary-400: #9a67ff;
+  --p-primary-500: #8542ff;
+  --p-primary-600: #6f2fda;
+  --p-primary-700: #5926ae;
+  --p-primary-800: #451f86;
+  --p-primary-900: #321862;
+
+  --bg-base: #0d0b15;
+  --bg-accent: #140f24;
+  --card: #171327;
+  --ink: #ebe6ff;
+  --muted: #a89fcb;
+  --line: #332b52;
+  --brand: #a166ff;
+  --brand-strong: #c7adff;
+  --alert: #ffbe78;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  font-family: 'Space Grotesk', sans-serif;
+  color: var(--ink);
+  background:
+    radial-gradient(circle at 15% 10%, rgba(126, 78, 255, 0.26) 0%, transparent 44%),
+    radial-gradient(circle at 82% 0%, rgba(62, 38, 144, 0.34) 0%, transparent 42%),
+    linear-gradient(165deg, var(--bg-base), #0b0913 55%, #090711 100%);
+}
+
+#app {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 1.4rem;
+}
+
+h1,
+h2,
+h3,
+p {
+  margin: 0;
+}
+
+.app-shell {
+  display: grid;
+  gap: 1rem;
+}
+
+.topbar {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  align-items: flex-start;
+  padding: 1rem;
+  border: 1px solid var(--line);
+  border-radius: 1rem;
+  background: color-mix(in oklab, var(--card), black 12%);
+  box-shadow: 0 18px 44px -34px rgba(5, 4, 13, 0.95);
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.brand-copy {
+  display: grid;
+  gap: 0.35rem;
+}
+
+.brand-logo {
+  width: 2.9rem;
+  height: 2.9rem;
+  flex: 0 0 auto;
+  filter: drop-shadow(0 0 0.7rem rgba(161, 102, 255, 0.38));
+}
+
+.brand h1 {
+  font-size: 2rem;
+  letter-spacing: 0.03em;
+}
+
+.eyebrow {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 0.72rem;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  color: var(--muted);
+}
+
+.subtitle {
+  color: var(--muted);
+  font-size: 0.94rem;
+}
+
+.project-nav {
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}
+
+.project-link {
+  text-decoration: none;
+  color: var(--brand-strong);
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  padding: 0.45rem 0.85rem;
+  background: color-mix(in oklab, var(--card), black 4%);
+  font-size: 0.9rem;
+  transition:
+    transform 140ms ease,
+    border-color 140ms ease;
+}
+
+.project-link.active {
+  border-color: var(--brand);
+  background: color-mix(in oklab, var(--brand), black 80%);
+}
+
+.project-link:hover {
+  transform: translateY(-1px);
+}
+
+.content {
+  border: 1px solid var(--line);
+  border-radius: 1rem;
+  background: color-mix(in oklab, var(--card), black 7%);
+  padding: 1rem;
+}
+
+.section-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+.section-header h2 {
+  font-size: 1.45rem;
+}
+
+.section-header p {
+  color: var(--muted);
+  margin-top: 0.35rem;
+}
+
+.project-grid,
+.question-stack {
+  display: grid;
+  gap: 0.9rem;
+}
+
+.webhook-form-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(220px, 1fr));
+  gap: 0.7rem;
+}
+
+.webhook-field {
+  display: grid;
+  gap: 0.35rem;
+}
+
+.webhook-events-grid {
+  margin-top: 0.75rem;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(220px, 1fr));
+  gap: 0.45rem 0.75rem;
+}
+
+.webhook-event-toggle {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  color: var(--muted);
+}
+
+.webhook-actions {
+  margin-top: 0.8rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.45rem;
+}
+
+.webhook-url {
+  word-break: break-all;
+}
+
+.project-card,
+.question-card,
+.task-card {
+  border: 1px solid var(--line);
+  border-radius: 0.9rem;
+}
+
+.card-title-row,
+.task-top-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 0.6rem;
+}
+
+.project-title-link {
+  color: var(--brand-strong);
+  text-decoration: none;
+  font-weight: 700;
+}
+
+.goal-copy,
+.question-context {
+  color: var(--muted);
+}
+
+.metric-row,
+.task-meta-row {
+  margin-top: 0.9rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  color: var(--muted);
+  font-size: 0.88rem;
+}
+
+.board-grid {
+  display: grid;
+  grid-template-columns: repeat(5, minmax(180px, 1fr));
+  gap: 0.75rem;
+  overflow-x: auto;
+  padding-bottom: 0.3rem;
+}
+
+.board-column {
+  border: 1px solid var(--line);
+  border-radius: 0.75rem;
+  background: color-mix(in oklab, var(--bg-accent), black 12%);
+  padding: 0.65rem;
+  min-width: 190px;
+  transition:
+    border-color 120ms ease,
+    box-shadow 120ms ease;
+}
+
+.board-column.drop-active {
+  border-color: var(--brand);
+  box-shadow: inset 0 0 0 1px color-mix(in oklab, var(--brand), white 18%);
+}
+
+.board-column h3 {
+  font-size: 0.86rem;
+  margin-bottom: 0.65rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--muted);
+}
+
+.column-stack {
+  display: grid;
+  gap: 0.55rem;
+  min-height: 1rem;
+}
+
+.task-card {
+  cursor: grab;
+}
+
+.task-card.dragging {
+  opacity: 0.55;
+  cursor: grabbing;
+}
+
+.board-loading,
+.empty-state {
+  color: var(--muted);
+  padding: 1rem 0.2rem;
+}
+
+.column-count {
+  color: var(--brand-strong);
+  font-size: 0.82rem;
+  margin-left: 0.45rem;
+}
+
+.task-key {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 0.82rem;
+}
+
+.task-title,
+.question-title {
+  font-size: 0.96rem;
+  font-weight: 600;
+}
+
+.blocked-pill,
+.question-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+  border-radius: 999px;
+  border: 1px solid color-mix(in oklab, var(--alert), black 14%);
+  padding: 0.2rem 0.5rem;
+  color: #f8d29f;
+  background: color-mix(in oklab, var(--alert), black 80%);
+  font-size: 0.72rem;
+  text-transform: uppercase;
+  letter-spacing: 0.07em;
+}
+
+.spec-layout {
+  display: grid;
+  grid-template-columns: 240px 1fr;
+  gap: 0.9rem;
+}
+
+.spec-nav {
+  display: grid;
+  gap: 0.45rem;
+}
+
+.spec-tab {
+  text-align: left;
+  border: 1px solid var(--line);
+  border-radius: 0.65rem;
+  padding: 0.5rem 0.65rem;
+  font: inherit;
+  background: color-mix(in oklab, var(--card), black 10%);
+  color: var(--ink);
+  cursor: pointer;
+}
+
+.spec-tab.active {
+  border-color: var(--brand);
+  background: color-mix(in oklab, var(--brand), black 81%);
+}
+
+.spec-editor {
+  display: grid;
+  gap: 0.65rem;
+}
+
+.spec-textarea textarea {
+  width: 100%;
+  min-height: 420px;
+}
+
+.spec-history,
+.spec-diff {
+  display: grid;
+  gap: 0.55rem;
+  border: 1px solid var(--line);
+  border-radius: 0.7rem;
+  padding: 0.65rem;
+  background: color-mix(in oklab, var(--bg-accent), black 13%);
+}
+
+.spec-diff .task-select {
+  max-width: 340px;
+}
+
+.diff-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+}
+
+.diff-line {
+  display: grid;
+  grid-template-columns: 3.2rem 3.2rem 1.5rem 1fr;
+  gap: 0.45rem;
+  align-items: start;
+  border-bottom: 1px solid color-mix(in oklab, var(--line), black 18%);
+  padding: 0.28rem 0.35rem;
+}
+
+.diff-line:last-child {
+  border-bottom: none;
+}
+
+.diff-line.added {
+  background: color-mix(in oklab, #3fcf8e, transparent 88%);
+}
+
+.diff-line.removed {
+  background: color-mix(in oklab, #ff7d7d, transparent 89%);
+}
+
+.diff-num,
+.diff-marker {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 0.74rem;
+  color: var(--muted);
+}
+
+.diff-text {
+  white-space: pre-wrap;
+  color: var(--ink);
+  font-size: 0.78rem;
+}
+
+.answer-row {
+  margin-top: 0.8rem;
+  display: flex;
+  gap: 0.55rem;
+}
+
+.create-project-form {
+  display: grid;
+  gap: 0.85rem;
+}
+
+.create-project-field {
+  display: grid;
+  gap: 0.35rem;
+}
+
+.create-project-goal textarea {
+  width: 100%;
+}
+
+.create-project-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 0.5rem;
+}
+
+.answer-input {
+  flex: 1;
+}
+
+.task-detail-layout {
+  display: grid;
+  gap: 0.95rem;
+}
+
+.detail-section {
+  display: grid;
+  gap: 0.6rem;
+  border: 1px solid var(--line);
+  border-radius: 0.7rem;
+  padding: 0.75rem;
+  background: color-mix(in oklab, var(--bg-accent), black 12%);
+}
+
+.detail-section h3 {
+  font-size: 0.94rem;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+  color: var(--brand-strong);
+}
+
+.detail-header-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.detail-tag-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.35rem;
+}
+
+.field-label {
+  font-size: 0.83rem;
+  color: var(--muted);
+}
+
+.field-help {
+  color: var(--muted);
+  font-size: 0.77rem;
+}
+
+.task-form-row {
+  display: grid;
+  gap: 0.65rem;
+  grid-template-columns: repeat(3, minmax(140px, 1fr));
+}
+
+.task-form-row label {
+  display: grid;
+  gap: 0.35rem;
+}
+
+.task-select {
+  width: 100%;
+  border-radius: 0.5rem;
+  border: 1px solid var(--line);
+  background: color-mix(in oklab, var(--card), black 8%);
+  color: var(--ink);
+  padding: 0.45rem 0.55rem;
+  font: inherit;
+}
+
+.file-input {
+  width: 100%;
+  border-radius: 0.5rem;
+  border: 1px solid var(--line);
+  background: color-mix(in oklab, var(--card), black 8%);
+  color: var(--ink);
+  padding: 0.35rem;
+  font: inherit;
+}
+
+.file-input::file-selector-button {
+  border: 1px solid var(--line);
+  border-radius: 0.4rem;
+  background: color-mix(in oklab, var(--brand), black 78%);
+  color: var(--brand-strong);
+  padding: 0.35rem 0.55rem;
+  margin-right: 0.55rem;
+  cursor: pointer;
+}
+
+.detail-actions {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.subtask-list,
+.question-list,
+.attachment-list,
+.history-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 0.45rem;
+}
+
+.subtask-item,
+.question-item,
+.attachment-item,
+.history-item {
+  border: 1px solid var(--line);
+  border-radius: 0.55rem;
+  padding: 0.55rem 0.65rem;
+  background: color-mix(in oklab, var(--card), black 8%);
+}
+
+.subtask-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 0.65rem;
+}
+
+.subtask-check {
+  display: flex;
+  align-items: center;
+  gap: 0.55rem;
+}
+
+.subtask-title.done {
+  text-decoration: line-through;
+  color: var(--muted);
+}
+
+.inline-create-row {
+  display: grid;
+  gap: 0.5rem;
+  grid-template-columns: 1fr auto;
+}
+
+.inline-create-column {
+  display: grid;
+  gap: 0.45rem;
+}
+
+.question-copy {
+  font-weight: 600;
+}
+
+.question-context-detail {
+  color: var(--muted);
+  margin-top: 0.35rem;
+}
+
+.resolved-block {
+  border: 1px solid var(--line);
+  border-radius: 0.55rem;
+  padding: 0.5rem 0.6rem;
+  background: color-mix(in oklab, var(--card), black 7%);
+}
+
+.resolved-block summary {
+  cursor: pointer;
+  color: var(--brand-strong);
+}
+
+.question-answer {
+  margin-top: 0.4rem;
+  color: var(--muted);
+}
+
+.attachment-item {
+  display: flex;
+  justify-content: space-between;
+  gap: 0.6rem;
+  align-items: center;
+}
+
+.attachment-item a {
+  color: var(--brand-strong);
+  text-decoration: none;
+}
+
+.attachment-item a:hover {
+  text-decoration: underline;
+}
+
+.dim-copy {
+  color: var(--muted);
+}
+
+.history-line {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.55rem;
+  color: var(--muted);
+  font-size: 0.86rem;
+}
+
+.history-detail {
+  margin-top: 0.45rem;
+  display: block;
+  white-space: pre-wrap;
+  color: var(--brand-strong);
+  font-size: 0.78rem;
+}
+
+@media (max-width: 900px) {
+  .spec-layout {
+    grid-template-columns: 1fr;
+  }
+
+  .topbar {
+    flex-direction: column;
+  }
+
+  .brand {
+    width: 100%;
+  }
+
+  .task-form-row {
+    grid-template-columns: 1fr;
+  }
+
+  .inline-create-row {
+    grid-template-columns: 1fr;
+  }
+
+  .create-project-actions {
+    flex-direction: column-reverse;
+    align-items: stretch;
+  }
+
+  .webhook-form-grid,
+  .webhook-events-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .diff-line {
+    grid-template-columns: 2.4rem 2.4rem 1.2rem 1fr;
+  }
+}

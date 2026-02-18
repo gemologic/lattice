@@ -1,0 +1,33 @@
+[package]
+name = "lattice"
+version = "0.1.0"
+edition = "2021"
+build = "build.rs"
+
+[dependencies]
+anyhow = "1.0.97"
+axum = { version = "0.8.8", features = ["macros", "multipart"] }
+chrono = { version = "0.4.40", features = ["clock", "serde"] }
+clap = { version = "4.5.32", features = ["derive", "env"] }
+hmac = "0.12.1"
+mime_guess = "2.0.5"
+regex = "1.11.1"
+reqwest = { version = "0.12.12", default-features = false, features = ["json", "multipart", "rustls-tls"] }
+rmcp = { version = "0.14.0", features = ["server", "macros", "transport-streamable-http-server"] }
+rust-embed = "8.5.0"
+schemars = "0.8.22"
+serde = { version = "1.0.219", features = ["derive"] }
+serde_json = "1.0.140"
+sha2 = "0.10.8"
+sqlx = { version = "0.8.3", features = ["runtime-tokio-rustls", "any", "sqlite", "postgres", "migrate", "uuid", "chrono"] }
+thiserror = "2.0.12"
+tokio = { version = "1.44.0", features = ["fs", "macros", "rt-multi-thread", "signal"] }
+tokio-stream = "0.1.17"
+tower-http = { version = "0.6.2", features = ["compression-br", "cors", "trace"] }
+tracing = "0.1.41"
+tracing-subscriber = { version = "0.3.19", features = ["env-filter", "fmt"] }
+uuid = { version = "1.15.1", features = ["v4", "serde"] }
+
+[dev-dependencies]
+axum-test = "17.2.0"
+tempfile = "3.18.0"
