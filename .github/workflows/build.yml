@@ -25,7 +25,8 @@ jobs:
       - name: install Rust toolchain
         uses: actions-rust-lang/setup-rust-toolchain@v1.15.2
       - uses: oven-sh/setup-bun@v2
-      - run: bun install
+      - run: cd ui && bun install
+      - run: cd ui && bun run build
       - name: run tests
         run: cargo test --verbose
       - name: build
@@ -56,5 +57,7 @@ jobs:
         uses: actions-rust-lang/setup-rust-toolchain@v1.15.2
         with:
           components: clippy
+      - uses: oven-sh/setup-bun@v2
+      - run: cd ui && bun install
       - name: run clippy
         run: cargo clippy --all --benches --tests --examples --all-features -- -D warnings -W clippy::collapsible_else_if
